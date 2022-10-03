@@ -1,0 +1,14 @@
+body{
+    font-family: 'Nunito', sans-serif;
+    margin-left: 200px;
+    background-color: red;
+}
+.wrapper{}
+.container{}
+.header{}
+.header__logo{}
+.header__logo-image{}
+.header__logo-image-text{}
+.header__logo-text{}
+.header__nav{}
+
