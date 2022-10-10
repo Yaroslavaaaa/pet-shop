@@ -5,5 +5,11 @@
 </head>
 <body>
 <h1>User page</h1>
+<div class="container">
+    @extends('navbar')
+    @section('navbar')
+        <h1>{{$user->name}}</h1>
+    @endsection
+</div>
 </body>
 </html>

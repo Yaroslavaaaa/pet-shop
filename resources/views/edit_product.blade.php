@@ -2,52 +2,12 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <link rel="stylesheet" href="resources/css/app.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
 <body style="background-color: #FFCC19">
-{{--<div class="container">--}}
-{{--    <form action="{{route('editSave', ['product' => $product->id])}}" method="post" enctype="multipart/form-data">--}}
-{{--        @csrf--}}
-{{--        <input type="text" placeholder="Input product name" name="name" value="{{$product->name}}">--}}
-{{--        <select name="category_id">--}}
-{{--            <option value="{{$product->category_id}}" class="select-control"></option>--}}
-{{--            @foreach($categories as $category)--}}
-{{--                <option value="{{$category->id}}">{{$category->name}}</option>--}}
-{{--            @endforeach--}}
-{{--        </select>--}}
-{{--        <textarea placeholder="Input description" name="description">{{$product->description}}</textarea>--}}
-{{--        <input type="number" placeholder="Input price" name="price" value="{{$product->price}}">--}}
-{{--        <input type="file" placeholder="Choose image" name="imageUrl">--}}
-{{--        <input type="submit" value="Add">--}}
-{{--    </form>--}}
-{{--</div>--}}
-
-
 <div class="container">
-    <nav class="navbar navbar-expand-lg" style="background-color: #FFCC19">
-        <div class="container-fluid">
-            <span style="background-color: black; font-size: 24px; color: white; padding-left: 5px; padding-right: 5px;
-            border-radius: 7px">HP</span>
-            <a class="navbar-brand" href="#">HAPPY PET</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('products')}}">Товары</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Корзина</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @extends('navbar')
+    @section('navbar')
     <div class="row">
         <div class="col-6 mx-auto">
 
@@ -113,11 +73,6 @@
                     <input class="form-control form-control-sm" id="formFileSm" type="file" name="imageUrl">
                 </div>
             </div>
-{{--            <div class="row mt-2">--}}
-{{--                <div class="col-12">--}}
-{{--                    <input class="btn btn-success" type="submit" value="Сохранить">--}}
-{{--                </div>--}}
-{{--            </div>--}}
         <button type="submit" class="btn btn-success">Сохранить</button>
         <a class="btn btn-danger" href="{{route('product', ['product' => $product->id])}}">Отменить</a>
 
@@ -127,6 +82,6 @@
     </div>
 </div>
 </div>
-
+@endsection
 </body>
 </html>
