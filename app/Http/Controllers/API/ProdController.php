@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Services\ProdService;
 use http\Env\Response;
@@ -22,7 +23,7 @@ class ProdController extends Controller
 
             return response()->json([
                 'status' => true,
-                'products' => $products
+                'products' => ProductResource::collection($products)
             ]);
         } catch (\Exception $e){
             return response()->json([
@@ -39,7 +40,7 @@ class ProdController extends Controller
 
             return response()->json([
                 'status' => true,
-                'product' => $product
+                'product' => new ProductResource($product)
             ]);
         } catch (\Exception $e){
             return response()->json([
@@ -56,7 +57,7 @@ class ProdController extends Controller
 
             return response()->json([
                 'status' => true,
-                'product' => $product
+                'product' => new ProductResource($product)
             ]);
         } catch (\Exception $e){
             return response()->json([
@@ -75,7 +76,7 @@ class ProdController extends Controller
 
                 return response()->json([
                     'status' => true,
-                    'product' => $product
+                    'product' => new ProductResource($product)
                 ]);
 
         }catch (\Exception $e){
