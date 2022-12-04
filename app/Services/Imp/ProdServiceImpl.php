@@ -24,7 +24,8 @@ class ProdServiceImpl implements ProdService
         $product->category_id = $request->get('category_id');
         $product->description = $request->get('description');
         $product->price = $request->get('price');
-        $product->imageUrl = $request->get('imageUrl');
+        $url = $request->file('imageUrl')->store('images');
+        $product->imageUrl = $url;
 
 
         $product->save();
@@ -48,7 +49,8 @@ class ProdServiceImpl implements ProdService
         $product->category_id = $request->get('category_id');
         $product->description = $request->get('description');
         $product->price = $request->get('price');
-        $product->imageUrl = $request->get('imageUrl');
+        $url = $request->file('imageUrl')->store('images');
+        $product->imageUrl = $url;
 
         $product->save();
 

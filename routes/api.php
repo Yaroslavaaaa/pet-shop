@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/products', [\App\Http\Controllers\API\ProdController::class, 'index']);
 Route::get("/products/{id}", [\App\Http\Controllers\API\ProdController::class, 'show']);
-Route::post('/products/add', [\App\Http\Controllers\API\ProdController::class, 'store']);
+Route::post('/products/add', [\App\Http\Controllers\API\ProdController::class, 'create']);
 Route::put("/products/{id}", [\App\Http\Controllers\API\ProdController::class, 'update']);
 Route::delete("/products/{id}", [\App\Http\Controllers\API\ProdController::class, 'delete']);
 
@@ -28,4 +28,4 @@ Route::delete("/products/{id}", [\App\Http\Controllers\API\ProdController::class
 Route::post('register', [\App\Http\Controllers\API\AuthApiController::class, 'register']);
 Route::post('/login', [\App\Http\Controllers\API\AuthApiController::class, 'login']);
 Route::get('emps', [\App\Http\Controllers\API\EmployeeController::class, 'index'])->middleware('auth:api');
-Route::post('createemp', [\App\Http\Controllers\API\EmployeeController::class, 'store'])->middleware('auth:api');
+Route::post('createemp', [\App\Http\Controllers\API\EmployeeController::class, 'store'])->middleware(['auth:api', 'admin']);
